@@ -18,9 +18,8 @@ Bootstrap 2.3.2 http://getbootstrap.com/2.3.2/ - Copyright: @mdo: twitter.com/md
 Font Awesome - http://fortawesome.github.io/Font-Awesome/ - Copyright: Dave Gandy, twitter.com/davegandy
 
 ### Scripts:
-iScroll v4.2.5 - Copyright (c) 2012 Matteo Spinelli, http://cubiq.org
-Released under MIT license, http://cubiq.org/license
-Modernizr 2.6.2 - http://modernizr.com/
+* iScroll v4.2.5 - Copyright (c) 2012 Matteo Spinelli, http://cubiq.org
+* Modernizr 2.6.2 - http://modernizr.com/
 
 ## Support
 Please post your questions in Questions & Answers page or drop us an email to help@designwall.com

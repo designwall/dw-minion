@@ -1,5 +1,8 @@
 # DW Minion
-FREE Responsive WordPress Theme For Personal Blog
+FREE Responsive WordPress Theme For Personal Blog.
+
+This theme is designed which aims for a minimal and simple blog while showing off the most of your content.
+DW Minion supports responsive design and it’s great to blog anytime anywhere you want.
 
 ## Download
 * DW Minion 1.0.7: http://www.designwall.com/wordpress/themes/dw-minion

@@ -5,6 +5,8 @@ FREE Responsive WordPress Theme For Personal Blog
 * DW Minion 1.0.7: http://www.designwall.com/wordpress/themes/dw-minion
 * Latest builds: https://github.com/designwall/DW-Minion/tags
 
+Read the [Getting Started page](http://www.designwall.com/guide/install-theme-manually/) for information on the theme installation.
+
 ## Demo
 Demo link: http://demo.designwall.com/dw-minion
 

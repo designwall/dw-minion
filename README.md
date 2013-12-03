@@ -12,12 +12,10 @@ DW Minion WordPress theme is licensed under the GPL v3.0
 
 DW Minion is built with the following resources:
 
-[Bootstrap 2.3.2](http://getbootstrap.com/2.3.2/) - Copyright: @mdo: twitter.com/mdo and @fat: twitter.com/fat
+## Credits
 
-### Icon Fonts: 
-[Font Awesome](http://fortawesome.github.io/Font-Awesome/) - Copyright: Dave Gandy, twitter.com/davegandy
-
-### Scripts:
+* [Bootstrap 2.3.2](http://getbootstrap.com/2.3.2/) - Copyright: @mdo: twitter.com/mdo and @fat: twitter.com/fat
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/) - Copyright: Dave Gandy, twitter.com/davegandy
 * [iScroll 4.2.5](http://cubiq.org) - Copyright (c) 2012 Matteo Spinelli
 * [Modernizr 2.6.2](http://modernizr.com/) - MIT & BSD
 

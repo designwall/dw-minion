@@ -7,10 +7,7 @@
 ## About
 FREE Responsive WordPress Theme For Personal Blog
 
-DW Minion WordPress theme, Copyright (C) 2013 DesignWall
-DW Minion WordPress theme is licensed under the GPL v3.0
-
-DW Minion is built with the following resources:
+DW Minion WordPress theme, Copyright (C) 2013 DesignWall. DW Minion WordPress theme is licensed under the GPL v3.0
 
 ## Credits
 

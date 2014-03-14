@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DW Minion\n"
-"POT-Creation-Date: 2014-03-04 11:37+0700\n"
-"PO-Revision-Date: 2014-03-04 11:37+0700\n"
+"POT-Creation-Date: 2014-03-14 12:00+0700\n"
+"PO-Revision-Date: 2014-03-14 12:00+0700\n"
 "Last-Translator: \n"
 "Language-Team: DesignWall <hi@designwall.com>\n"
 "Language: en\n"
@@ -115,6 +115,30 @@ msgstr ""
 #: ../content-single.php:33
 #, php-format
 msgid "%1$s"
+msgstr ""
+
+#: ../content-single.php:37
+msgid "Share this"
+msgstr ""
+
+#: ../content-single.php:43
+msgid "Share on Facebook"
+msgstr ""
+
+#: ../content-single.php:44
+msgid "Share on Google+"
+msgstr ""
+
+#: ../content-single.php:45
+msgid "Share on Twitter"
+msgstr ""
+
+#: ../content-single.php:46
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: ../content-single.php:47
+msgid "Share on Tumblr"
 msgstr ""
 
 #: ../content.php:10

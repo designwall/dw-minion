@@ -19,6 +19,10 @@ Modernizr 2.6.2 - http://modernizr.com/
 Please post your questions in Questions & Answers page - http://www.designwall.com/question/
 
 == Changelog ==
+= 1.1.5 =
+* Fix: Minor bugs in CSS.
+* New: Add social sharing to blog posts.
+
 = 1.1.4 =
 * New: Add language files.
 * New: Allow to change article font size in Customize panel.

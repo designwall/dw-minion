@@ -57,4 +57,10 @@ jQuery(document).ready(function($){
       var target =  $(this).val();
       $('.news-tab .nav-tabs a[href="'+target+'"]').tab('show');
   });
+  // Social share
+  $('[class*="dw-share-"]').click(function() {
+  var newwindow = window.open($(this).prop('href'), '', 'height=340,width=800');
+  if (window.focus) newwindow.focus();
+    return false;
+  });
 });

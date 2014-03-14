@@ -6,7 +6,7 @@
 // Global  
 // -------------------------
 .site-actions {
-  background: @bodyBackground;
+  background: @gray2;
   position: fixed;
   z-index: @zindex0;
 
@@ -17,7 +17,7 @@
     line-height: @layoutGutterWidth;
     display: block;
     color: @gray4;
-    background: @bodyBackground;
+    background: @gray2;
     cursor: pointer;
   }
 }
@@ -38,6 +38,7 @@
 @media ( min-width: 768px ) {
   .site-actions {
     border-top: 1px solid @gray3;
+    height: 100%;
     .actions > .action {
       border-bottom: 1px solid @gray3;
     }
@@ -180,7 +181,7 @@
     height: (@layoutGutterWidth - 1px);
     color: @gray4;
     z-index: 3;
-    background-color: @bodyBackground;
+    background-color: @gray2;
 
     &:before {
       content: "\f002";

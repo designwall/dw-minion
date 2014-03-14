@@ -23,6 +23,36 @@ class DW_Minion_Textarea_Custom_Control extends WP_Customize_Control {
   }
 }
 
+class Layout_Picker_Custom_control extends WP_Customize_Control {
+
+  public function render_content() {
+
+  if ( empty( $this->choices ) ) return;
+
+  $name = '_customize-radio-' . $this->id;
+
+  ?>
+  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+  <table style="margin-top: 10px; text-align: center; width: 100%;">
+    <tr>
+    <?php foreach ( $this->choices as $value => $label ) : ?>
+    <?php 
+      $checked = '';
+      if($value == 0) $checked = 'checked';
+    ?>
+    <td>
+      <label>
+        <img src="<?php echo get_template_directory_uri(); ?>/inc/img/layout-<?php echo esc_attr( $value ); ?>.png" alt="<?php echo esc_attr( $value ); ?>" /><br />
+        <input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); echo $checked ?> />
+      </label>
+    </td>
+    <?php endforeach; ?>
+    </tr>
+  </table>
+    <?php
+  }
+}
+
 class Color_Picker_Custom_control extends WP_Customize_Control {
 
   public function render_content() {
@@ -51,6 +81,25 @@ class Color_Picker_Custom_control extends WP_Customize_Control {
 
 function dw_minion_customize_register( $wp_customize ) {
 
+  // SITE LAYOUT --------------------------------------------------------------------------------------
+  $wp_customize->add_section('dw_minion_layout', array(
+    'title'    => __('Site Alignment', 'dw-minion'),
+    'priority' => 10,
+  ));
+
+  $wp_customize->add_setting('dw_minion_theme_options[layout]', array(
+    'capability' => 'edit_theme_options',
+    'type' => 'option'
+  ));
+
+  $wp_customize->add_control( new Layout_Picker_Custom_control($wp_customize, 'layout', array(
+    'label' => __('Align Left/Center', 'dw-minion'),
+    'section' => 'dw_minion_layout',
+    'settings' => 'dw_minion_theme_options[layout]',
+    'choices' => array('left', 'center')
+  )));
+
+  // SITE INFO & FAVICON --------------------------------------------------------------------------------------
   $wp_customize->add_setting('dw_minion_theme_options[about]', array(
     'default'        => '',
     'capability'     => 'edit_theme_options',
@@ -98,7 +147,7 @@ function dw_minion_customize_register( $wp_customize ) {
   // SOCIAL LINKS --------------------------------------------------------------------------------------
   $wp_customize->add_section('dw_minion_social_links', array(
     'title'    => __('Social Links', 'dw-minion'),
-    'priority' => 110,
+    'priority' => 108,
   ));
   $wp_customize->add_setting('dw_minion_theme_options[facebook]', array(
     'default'        => '',
@@ -151,6 +200,57 @@ function dw_minion_customize_register( $wp_customize ) {
     'settings'   => 'dw_minion_theme_options[linkedin]',
   ));
 
+  // LEFT SIDEBAR COLOR --------------------------------------------------------------------------------------
+  $wp_customize->add_section('dw_minion_leftbar', array(
+    'title'    => __('Left Sidebar Color', 'dw-minion'),
+    'priority' => 109,
+  ));
+  $wp_customize->add_setting('dw_minion_theme_options[leftbar_bgcolor]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bgcolor', array(
+    'label'        => __( 'Background Color', 'dw-minion' ),
+    'section'    => 'dw_minion_leftbar',
+    'settings'   => 'dw_minion_theme_options[leftbar_bgcolor]',
+  )));
+  $wp_customize->add_setting('dw_minion_theme_options[leftbar_bghovercolor]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bghovercolor', array(
+    'label'        => __( 'Background Hover Color', 'dw-minion' ),
+    'section'    => 'dw_minion_leftbar',
+    'settings'   => 'dw_minion_theme_options[leftbar_bghovercolor]',
+  )));
+  $wp_customize->add_setting('dw_minion_theme_options[leftbar_color]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_color', array(
+    'label'        => __( 'Text Color', 'dw-minion' ),
+    'section'    => 'dw_minion_leftbar',
+    'settings'   => 'dw_minion_theme_options[leftbar_color]',
+  )));
+  $wp_customize->add_setting('dw_minion_theme_options[leftbar_hovercolor]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_hovercolor', array(
+    'label'        => __( 'Text Hover Color', 'dw-minion' ),
+    'section'    => 'dw_minion_leftbar',
+    'settings'   => 'dw_minion_theme_options[leftbar_hovercolor]',
+  )));
+  $wp_customize->add_setting('dw_minion_theme_options[leftbar_bordercolor]', array(
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bordercolor', array(
+    'label'        => __( 'Border Color', 'dw-minion' ),
+    'section'    => 'dw_minion_leftbar',
+    'settings'   => 'dw_minion_theme_options[leftbar_bordercolor]',
+  )));
+
   // STYLE SELECTOR --------------------------------------------------------------------------------------
   $wp_customize->add_section('dw_minion_primary_color', array(
     'title'    => __('Style Selector', 'dw-minion'),
@@ -187,7 +287,7 @@ function dw_minion_customize_register( $wp_customize ) {
     }
   }
   $wp_customize->add_section('dw_minion_typo', array(
-    'title'    => __('Font Selector', 'dw-page'),
+    'title'    => __('Font Selector', 'dw-minion'),
     'priority' => 111,
   ));
   $wp_customize->add_setting('dw_minion_theme_options[heading_font]', array(
@@ -197,7 +297,7 @@ function dw_minion_customize_register( $wp_customize ) {
   ));
   $wp_customize->add_control( 'heading_font', array(
     'settings' => 'dw_minion_theme_options[heading_font]',
-    'label'   => 'Select headding font',
+    'label'   => __('Select headding font', 'dw-minion'),
     'section' => 'dw_minion_typo',
     'type'    => 'select',
     'choices'    => $newarray
@@ -209,10 +309,20 @@ function dw_minion_customize_register( $wp_customize ) {
   ));
   $wp_customize->add_control( 'body_font', array(
     'settings' => 'dw_minion_theme_options[body_font]',
-    'label'   => 'Select body font',
+    'label'   => __('Select body font', 'dw-minion'),
     'section' => 'dw_minion_typo',
     'type'    => 'select',
     'choices'    => $newarray
+  ));
+  $wp_customize->add_setting('dw_minion_theme_options[article_font_size]', array(
+    'default'        => '',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control('article_font_size', array(
+    'label'      => __('Article font size (px)', 'dw-minion'),
+    'section'    => 'dw_minion_typo',
+    'settings'   => 'dw_minion_theme_options[article_font_size]',
   ));
 
   // CUSTOM CODE --------------------------------------------------------------------------------------

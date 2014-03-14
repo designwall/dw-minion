@@ -10,7 +10,7 @@
 		<?php the_content( __( '<span class="btn btn-small">Continue reading</span>', 'dw-minion' ) ); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( '', 'dw-minion' ),
+				'before' => '<div class="page-links">',
 				'after'  => '</div>',
 				'link_before' => '<span class="btn btn-small">',
 				'link_after'  => '</span>',

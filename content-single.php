@@ -25,14 +25,12 @@
 	<?php endif; ?>
 	<footer class="entry-footer">
 		<?php
-			$tags_list = get_the_tag_list( '', __( '', 'dw-minion' ) );
+			$tags_list = get_the_tag_list();
 			if ( $tags_list ) :
 		?>
 		<div class="entry-tags">
 			<span class="tags-title"><?php _e('Tags','dw-minion') ?></span>
-			<span class="tags-links">
-				<?php printf( __( '%1$s', 'dw-minion' ), $tags_list ); ?>
-			</span>
+			<span class="tags-links"><?php printf( __( '%1$s', 'dw-minion' ), $tags_list ); ?></span>
 		</div>
 		<?php endif; ?>
 	</footer>

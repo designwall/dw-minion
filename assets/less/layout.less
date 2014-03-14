@@ -169,6 +169,11 @@
   }
 }
 
+// Top sidebar
+.top-sidebar {
+  margin-bottom: 30px;
+}
+
 // Primary - secondary
 .primary-secondary-980-i() {
   #primary {
@@ -213,5 +218,11 @@
   #secondary {
     margin-top: @layoutGutterWidth767;
     //display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed;
   }
 }

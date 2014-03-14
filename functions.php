@@ -22,7 +22,6 @@ function dw_minion_widgets_init() {
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
-
 	register_sidebar( array(
 		'name'          => __( 'Secondary Sidebar', 'dw-minion' ),
 		'id'            => 'sidebar-2',
@@ -31,14 +30,20 @@ function dw_minion_widgets_init() {
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
+	register_sidebar( array(
+        'name' => __( 'Top Sidebar', 'dw-minion' ),
+        'id' => 'top-sidebar',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'dw_minion_widgets_init' );
 
 function dw_minion_scripts() {
-	
 	wp_enqueue_style('dw-minion-main', get_template_directory_uri() . '/assets/css/main.css' ); // green
 	wp_enqueue_style( 'dw-minion-style', get_stylesheet_uri() );
-
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2.min.js', array(), '20130716' );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -63,9 +68,7 @@ add_action('wp_head', 'minion_features_image_as_og_image');
 function minion_features_image_as_og_image() {
 	global $post;
 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium'); 
-	?>
-		<meta property="og:image" content="<?php echo $thumb[0] ?>" />
-	<?php
+	?><meta property="og:image" content="<?php echo $thumb[0] ?>" /><?php
 }
 
 // load style for dw qa plugin
@@ -74,6 +77,12 @@ if( !function_exists('dwqa_minion_scripts') ){
 	    wp_enqueue_style( 'dw-minion-qa', get_stylesheet_directory_uri() . '/dwqa-templates/style.css' );
 	}
 	add_action( 'wp_enqueue_scripts', 'dwqa_minion_scripts' );
+}
+
+// Top sidebar
+add_action( 'dw_minion_top_sidebar', 'dw_minion_top_sidebar' );
+function dw_minion_top_sidebar() {
+    ?><div class="top-sidebar"><?php dynamic_sidebar( 'top-sidebar' ); ?></div><?php
 }
 
 // TGM plugin activation

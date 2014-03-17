@@ -19,6 +19,10 @@ Modernizr 2.6.2 - http://modernizr.com/
 Please post your questions in Questions & Answers page - http://www.designwall.com/question/
 
 == Changelog ==
+= 1.1.6 =
+* Fix: Change the social share color.
+* New: Add the typography page template to the theme.
+
 = 1.1.5 =
 * Fix: Minor bugs in CSS.
 * New: Add social sharing to blog posts.

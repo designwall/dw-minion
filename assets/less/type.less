@@ -370,3 +370,75 @@ address {
   font-style: normal;
   line-height: @baseLineHeight; 
 }
+
+// Typo
+//-----------------------------------
+[class*="templatestypography"] {
+  hr {
+      margin: 0 0 20px;
+  }
+  .entry-content {
+      .typo-title { 
+          font-size: @fontSizeLarge;
+          margin-top: 40px;
+      } 
+
+      > .typo-title:first-child {
+          margin-top: 0;
+      }
+  }
+  // Button
+  .demo-btn-group .wrap {
+      margin: 0 0 8px;
+      overflow: hidden;
+
+      .btn {
+          margin-left: 8px;
+          float: left;
+
+          &:first-child {
+              margin-left: 0;
+          }
+      }
+  }
+  .show-grid {
+      margin: @layoutGutterWidth/2 0;
+      .show-grid {
+          margin: 0;
+      }
+  }
+  .show-grid [class*="span"] {
+      background-color: @gray9;
+      .border-radius(2px);
+      line-height: 40px;
+      min-height: 40px;
+      text-align: center;
+      [class*="span"] {
+          background-color: #ccc;
+          [class*="span"] {
+              background-color: #999;
+          }
+      }
+  }
+  .docs-input-sizes select, 
+  .docs-input-sizes input[type="text"] {
+      display: block;
+      margin-top: 9px;
+  }
+  .the-icons {
+      list-style: none;  
+      margin-left: 0;
+      li {
+          float: left;
+          width: 25%;
+          line-height: 40px;
+          font-size: 14px;
+      }
+  }
+  .bs-docs-example-images {
+      text-align: center;
+      img { 
+          margin: 0 20px;
+      } 
+  }
+}

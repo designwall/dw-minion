@@ -140,19 +140,25 @@ function dw_minion_related_post($post_id) {
 		);
 	} ?>
 
-<?php $related_query = new wp_query( $args ); ?>
-	<?php if ( $related_query->have_posts() ) : ?>
-	<div class="related-posts">
-		<h2 class="related-posts-title"><?php _e( 'Related Articles.', 'dw_minion' ); ?></h2>
-		<div class="related-content">
-			<?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
-			<article class="related-post clearfix">
-				<h3 class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-				<div class="related-meta"><time class="related-date"><?php echo get_the_date('d M, Y'); ?></time></div>
-			</article>
-			<?php endwhile; ?>
+	<?php 
+	$disable_related_posts = dw_minion_get_theme_option( 'disable_related_article', 'no');
+	if($disable_related_posts != 'yes') {
+		$related_query = new wp_query( $args );
+		?>
+		<?php if ( $related_query->have_posts() ) : ?>
+		<div class="related-posts">
+			<h2 class="related-posts-title"><?php _e( 'Related Articles.', 'dw_minion' ); ?></h2>
+			<div class="related-content">
+				<?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
+				<article class="related-post clearfix">
+					<h3 class="related-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+					<div class="related-meta"><time class="related-date"><?php echo get_the_date('d M, Y'); ?></time></div>
+				</article>
+				<?php endwhile; ?>
+			</div>
 		</div>
-	</div>
-	<?php endif; ?>
+		<?php endif; ?>
+	<?php } ?>
+
 <?php wp_reset_query(); ?>
 <?php }

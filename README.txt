@@ -21,6 +21,7 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 == Changelog ==
 = 1.1.7 =
 * Fix: Change font style for links & blockquote.
+* New: Allow to disable related posts.
 
 = 1.1.6 =
 * Fix: Minor bugs in CSS.

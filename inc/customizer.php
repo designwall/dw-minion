@@ -81,6 +81,27 @@ class Color_Picker_Custom_control extends WP_Customize_Control {
 
 function dw_minion_customize_register( $wp_customize ) {
 
+  // GENERAL SETTINGS --------------------------------------------------------------------------------------
+  $wp_customize->add_section('dw_minion_general', array(
+    'title'    => __('General Settings', 'dw-minion'),
+    'priority' => 9,
+  ));
+  $wp_customize->add_setting('dw_minion_theme_options[disable_related_article]', array(
+    'default'        => 'no',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( 'disable_related_article', array(
+    'settings' => 'dw_minion_theme_options[disable_related_article]',
+    'label'   => 'Disable related articles?',
+    'section' => 'dw_minion_general',
+    'type'    => 'select',
+    'choices'    => array(
+      'yes' => 'Yes',
+      'no' => 'No',
+    ),
+  ));
+
   // SITE LAYOUT --------------------------------------------------------------------------------------
   $wp_customize->add_section('dw_minion_layout', array(
     'title'    => __('Site Alignment', 'dw-minion'),

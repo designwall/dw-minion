@@ -18,15 +18,15 @@ function dw_minion_content_nav( $nav_id ) {
 		<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="meta-nav btn">' . _x( '<i class="icon-chevron-right"></i>', 'Next post link', 'dw-minion' ) . '</span><span class="pager-title">%title</span>' ); ?>
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
 		<div class="nav-previous">
-			<?php if ( get_next_posts_link() ) : ?>
-				<?php next_posts_link( __( '<span class="meta-nav btn"><i class="icon-chevron-left"></i></span>', 'dw-minion' ) ); ?>
+			<?php if ( get_previous_posts_link() ) : ?>
+				<?php previous_posts_link( __( '<span class="meta-nav btn"><i class="icon-chevron-left"></i></span>', 'dw-minion' ) ); ?>
 			<?php else: ?>
 				<span class="btn disabled"><i class="icon-chevron-left"></i></span>
 			<?php endif; ?>
 		</div>
 		<div class="nav-next">
-			<?php if ( get_previous_posts_link() ) : ?>
-				<?php previous_posts_link( __( '<span class="meta-nav btn"><i class="icon-chevron-right"></i></span>', 'dw-minion' ) ); ?>
+			<?php if ( get_next_posts_link() ) : ?>
+				<?php next_posts_link( __( '<span class="meta-nav btn"><i class="icon-chevron-right"></i></span>', 'dw-minion' ) ); ?>
 			<?php else: ?>
 				<span class="btn disabled"><i class="icon-chevron-right"></i></span>
 			<?php endif; ?>

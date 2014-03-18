@@ -20,7 +20,9 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 
 == Changelog ==
 = 1.1.6 =
-* Fix: Change the social share color.
+* Fix: Minor bugs in CSS.
+* Fix: Change the pagination arrow icons.
+* Fix: Remove social share.
 * New: Add the typography page template to the theme.
 
 = 1.1.5 =

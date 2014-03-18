@@ -229,6 +229,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bgcolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '#222222'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bgcolor', array(
     'label'        => __( 'Background Color', 'dw-minion' ),
@@ -238,6 +239,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bghovercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '#111111'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bghovercolor', array(
     'label'        => __( 'Background Hover Color', 'dw-minion' ),
@@ -247,6 +249,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_color]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '#444444'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_color', array(
     'label'        => __( 'Text Color', 'dw-minion' ),
@@ -256,6 +259,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_hovercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '#ffffff'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_hovercolor', array(
     'label'        => __( 'Text Hover Color', 'dw-minion' ),
@@ -265,6 +269,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bordercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '#333333'
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bordercolor', array(
     'label'        => __( 'Border Color', 'dw-minion' ),
@@ -312,7 +317,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'priority' => 111,
   ));
   $wp_customize->add_setting('dw_minion_theme_options[heading_font]', array(
-    'default'        => '',
+    'default'        => 'Roboto Slab:dw:http://themes.googleusercontent.com/static/fonts/robotoslab/v2/3__ulTNA7unv0UtplybPiqCWcynf_cDxXwCLxiixG1c.ttf',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
   ));
@@ -324,7 +329,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'choices'    => $newarray
   ));
   $wp_customize->add_setting('dw_minion_theme_options[body_font]', array(
-    'default'        => '',
+    'default'        => 'Roboto:dw:http://themes.googleusercontent.com/static/fonts/roboto/v9/W5F8_SL0XFawnjxHGsZjJA.ttf',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
   ));
@@ -336,14 +341,14 @@ function dw_minion_customize_register( $wp_customize ) {
     'choices'    => $newarray
   ));
   $wp_customize->add_setting('dw_minion_theme_options[article_font_size]', array(
-    'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'default'        => '15'
   ));
   $wp_customize->add_control('article_font_size', array(
     'label'      => __('Article font size (px)', 'dw-minion'),
     'section'    => 'dw_minion_typo',
-    'settings'   => 'dw_minion_theme_options[article_font_size]',
+    'settings'   => 'dw_minion_theme_options[article_font_size]'
   ));
 
   // CUSTOM CODE --------------------------------------------------------------------------------------

@@ -177,7 +177,7 @@ function dw_minion_typo_font(){
           font-family: "<?php echo $heading_font[0]; ?>";
           src: url('<?php echo $heading_font[1] ?>');
         } 
-        h1,h2,h3,h4,h5,h6 {
+        h1,h2,h3,h4,h5,h6,blockquote p {
           font-family: "<?php echo $heading_font[0]; ?>";
         }
       </style>
@@ -191,7 +191,7 @@ function dw_minion_typo_font(){
           font-family: "<?php echo $body_font[0]; ?>";
           src: url('<?php echo $body_font[1] ?>');
         } 
-        body,.entry-content,.page-content,.site-description,.entry-meta .byline, .entry-meta .cat-links {
+        body,.entry-content,.page-content,.site-description,.entry-meta .byline, .entry-meta .cat-links, .format-link .entry-content a {
           font-family: "<?php echo $body_font[0]; ?>";
         }
       </style>

@@ -19,6 +19,9 @@ Modernizr 2.6.2 - http://modernizr.com/
 Please post your questions in Questions & Answers page - http://www.designwall.com/question/
 
 == Changelog ==
+= 1.1.7 =
+* Fix: Change font style for links & blockquote.
+
 = 1.1.6 =
 * Fix: Minor bugs in CSS.
 * Fix: Change the pagination arrow icons.

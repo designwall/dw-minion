@@ -100,6 +100,23 @@ function dw_minion_custom_footer_code() {
 add_action('wp_footer', 'dw_minion_custom_footer_code');
 
 /**
+ * Color Selector
+ */
+function dw_minion_remove_leftbar() {
+  $remove_leftbar = dw_minion_get_theme_option( 'remove_leftbar', 'no');
+  if($remove_leftbar == 'yes') { ?>
+    <style type="text/css" id="remove_leftbar" media="screen">
+      @media ( min-width: 1200px ) {
+        .site-actions {display: none;}
+        #page {margin-left: 0;}
+      }
+    </style>
+    <?php
+  }
+}
+add_filter('wp_head','dw_minion_remove_leftbar');
+
+/**
  * Left Sidebar Color
  */
 function dw_minion_leftbar_color() {

@@ -101,6 +101,21 @@ function dw_minion_customize_register( $wp_customize ) {
       'no' => 'No',
     ),
   ));
+  $wp_customize->add_setting('dw_minion_theme_options[remove_leftbar]', array(
+    'default'        => 'no',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( 'remove_leftbar', array(
+    'settings' => 'dw_minion_theme_options[remove_leftbar]',
+    'label'   => 'Remove the left bar?',
+    'section' => 'dw_minion_general',
+    'type'    => 'select',
+    'choices'    => array(
+      'yes' => 'Yes',
+      'no' => 'No',
+    ),
+  ));
 
   // SITE LAYOUT --------------------------------------------------------------------------------------
   $wp_customize->add_section('dw_minion_layout', array(

@@ -22,6 +22,7 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 = 1.1.7 =
 * Fix: Change font style for links & blockquote.
 * New: Allow to disable related posts.
+* New: Allow to remove the left black bar.
 
 = 1.1.6 =
 * Fix: Minor bugs in CSS.

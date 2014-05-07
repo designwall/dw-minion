@@ -20,7 +20,9 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 
 == Changelog ==
 = 1.1.7 =
+* Fix: Change top-bar position.
 * Fix: Change font style for links & blockquote.
+* Fix: Bugs in widgets page to be compatible with WordPess 3.9.
 * New: Allow to disable related posts.
 * New: Allow to remove the left black bar.
 

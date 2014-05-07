@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-    <html class="no-js ie lt-ie9" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if gt IE 9]>
-    <html class="no-js" <?php language_attributes(); ?>>
-<![endif]-->
+<html prefix="og: http://ogp.me/ns#" <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,7 +10,6 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<?php if ( is_active_sidebar( 'top-sidebar' ) ) do_action( 'dw_minion_top_sidebar' ); ?>
 	<div class="container clearfix">
 		<?php do_action( 'before' ); ?>
 		<div id="navigation" class="site-nav">
@@ -32,3 +26,4 @@
 		<div id="main" class="site-main">
 			<div class="site-main-inner">
 				<div class="container clearfix">
+					<?php if ( is_active_sidebar( 'top-sidebar' ) ) do_action( 'dw_minion_top_sidebar' ); ?>

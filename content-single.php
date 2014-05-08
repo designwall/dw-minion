@@ -6,7 +6,7 @@
 	<?php if( has_post_thumbnail() ) : ?>
 	<div class="entry-thumbnail"><?php the_post_thumbnail(); ?></div>
 	<?php endif; ?>
-	<?php if (  ( is_home() || is_tag() || is_category() || is_date() || is_search() ) : ?>
+	<?php if (  ( is_home() || is_tag() || is_category() || is_date() || is_search() ) ) : ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div>

@@ -9,5 +9,5 @@
 		</div>
 	</div>
 </div>
-<?php get_sidebar('secondary'); ?>
+<?php get_sidebar( 'secondary' ); ?>
 <?php get_footer(); ?>

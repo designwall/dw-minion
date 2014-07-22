@@ -4,7 +4,7 @@
  */
 function dw_minion_get_theme_option( $option_name, $default = '' ) {
   $options = get_option( 'dw_minion_theme_options' );
-  if( isset($options[$option_name]) ) {
+  if ( isset( $options[$option_name] ) ) {
     return $options[$option_name];
   }
   return $default; 
@@ -14,7 +14,7 @@ function dw_minion_get_theme_option( $option_name, $default = '' ) {
  * Site Layout
  */
 function dw_minion_site_layout() {
-  if (dw_minion_get_theme_option('layout', 'left') == 1) {
+  if ( dw_minion_get_theme_option( 'layout', 'left' ) == 1 ) {
     ?>
     <style type="text/css" id="minion_layout" media="screen">
     .container {margin: 0 auto;}
@@ -22,7 +22,7 @@ function dw_minion_site_layout() {
     <?php
   }
 }
-add_filter('wp_head','dw_minion_site_layout');
+add_filter( 'wp_head','dw_minion_site_layout' );
 
 /**
  * Body Custom classes
@@ -39,8 +39,8 @@ add_filter( 'body_class', 'dw_minion_body_classes' );
  * Change Favicon
  */
 function dw_minion_favicon() {
-  $favicon = dw_minion_get_theme_option('favicon');
-  if($favicon)
+  $favicon = dw_minion_get_theme_option( 'favicon' );
+  if ( $favicon )
     echo '<link type="image/x-icon" href="'.$favicon.'" rel="shortcut icon">';
 }
 add_action( 'wp_head', 'dw_minion_favicon' );
@@ -66,20 +66,20 @@ add_filter( 'wp_title', 'dw_minion_wp_title', 10, 2 );
  * Display Logo
  */
 function dw_minion_logo() {
-  $header_display = (dw_minion_get_theme_option( 'header_display', 'site_title') == 'site_title') ? 'display-title' : 'display-logo';
+  $header_display = ( dw_minion_get_theme_option( 'header_display', 'site_title' ) == 'site_title' ) ? 'display-title' : 'display-logo';
   $logo = dw_minion_get_theme_option( 'logo' );
   $tagline = get_bloginfo( 'description' );
   $about = dw_minion_get_theme_option( 'about', get_bloginfo( 'description' ) );
   echo '<h1 class="site-title '.$header_display.'"><a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" rel="home">';
-  if ($header_display == 'display-logo') {
+  if ( $header_display == 'display-logo' ) {
     echo '<img alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.$logo.'" />';
   } else {
     echo get_bloginfo( 'name' );
   }
   echo '</a></h1>';
-  if($tagline)
+  if( $tagline )
     echo '<p class="site-subtitle">'.$tagline.'</p>';
-  if($about)
+  if( $about )
     echo '<h2 class="site-description">'.$about.'</h2>';
 }
 
@@ -89,7 +89,7 @@ function dw_minion_logo() {
 function dw_minion_custom_header_code() {
   echo dw_minion_get_theme_option( 'header_code' );
 }
-add_action('wp_head', 'dw_minion_custom_header_code');
+add_action( 'wp_head', 'dw_minion_custom_header_code' );
 
 /**
  * Footer Code
@@ -97,14 +97,14 @@ add_action('wp_head', 'dw_minion_custom_header_code');
 function dw_minion_custom_footer_code() {
   echo dw_minion_get_theme_option( 'footer_code' );
 }
-add_action('wp_footer', 'dw_minion_custom_footer_code');
+add_action( 'wp_footer', 'dw_minion_custom_footer_code' );
 
 /**
  * Color Selector
  */
 function dw_minion_remove_leftbar() {
-  $remove_leftbar = dw_minion_get_theme_option( 'remove_leftbar', 'no');
-  if($remove_leftbar == 'yes') { ?>
+  $remove_leftbar = dw_minion_get_theme_option( 'remove_leftbar', 'no' );
+  if ( $remove_leftbar == 'yes' ) { ?>
     <style type="text/css" id="remove_leftbar" media="screen">
       @media ( min-width: 1200px ) {
         .site-actions {display: none;}
@@ -114,18 +114,18 @@ function dw_minion_remove_leftbar() {
     <?php
   }
 }
-add_filter('wp_head','dw_minion_remove_leftbar');
+add_filter( 'wp_head','dw_minion_remove_leftbar' );
 
 /**
  * Left Sidebar Color
  */
 function dw_minion_leftbar_color() {
-  $leftbar_bgcolor      = dw_minion_get_theme_option('leftbar_bgcolor');
-  $leftbar_bghovercolor = dw_minion_get_theme_option('leftbar_bghovercolor');
-  $leftbar_color        = dw_minion_get_theme_option('leftbar_color');
-  $leftbar_hovercolor   = dw_minion_get_theme_option('leftbar_hovercolor');
-  $leftbar_bordercolor  = dw_minion_get_theme_option('leftbar_bordercolor');
-  if($leftbar_bgcolor || $leftbar_bghovercolor || $leftbar_color || $leftbar_hovercolor || $leftbar_bordercolor) { ?>
+  $leftbar_bgcolor      = dw_minion_get_theme_option( 'leftbar_bgcolor' );
+  $leftbar_bghovercolor = dw_minion_get_theme_option( 'leftbar_bghovercolor' );
+  $leftbar_color        = dw_minion_get_theme_option( 'leftbar_color' );
+  $leftbar_hovercolor   = dw_minion_get_theme_option( 'leftbar_hovercolor' );
+  $leftbar_bordercolor  = dw_minion_get_theme_option( 'leftbar_bordercolor' );
+  if( $leftbar_bgcolor || $leftbar_bghovercolor || $leftbar_color || $leftbar_hovercolor || $leftbar_bordercolor ) { ?>
     <style type="text/css" id="minion_leftbar_color" media="screen">
       .show-nav .show-site-nav i,.action.search label,.site-actions i {
         color: <?php echo $leftbar_color ?>;
@@ -154,18 +154,18 @@ function dw_minion_leftbar_color() {
     <?php
   }
 }
-add_filter('wp_head','dw_minion_leftbar_color');
+add_filter( 'wp_head','dw_minion_leftbar_color' );
 
 /**
  * Color Selector
  */
 function dw_minion_typo_color() {
-  if ( dw_minion_get_theme_option('custom-color') != '' ) {
+  if ( dw_minion_get_theme_option( 'custom-color' ) != '' ) {
     $minion_color = dw_minion_get_theme_option('custom-color');
   } else {
-    $minion_color = dw_minion_get_theme_option('select-color'); 
-  } 
-  if($minion_color) { ?>
+    $minion_color = dw_minion_get_theme_option( 'select-color' );
+  }
+  if( $minion_color ) { ?>
     <style type="text/css" id="minion_color" media="screen">
       .btn:hover,#nav-below .btn:hover,.accordion-heading .accordion-toggle,.nav-tabs > li > a:hover, .nav-tabs > li > a:focus,.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus,.pager .pager-title .nav-next a:hover .btn, .pager .pager-title .nav-previous a:hover .btn, .entry-footer .entry-tags .tags-links a:hover,#cancel-comment-reply-link:hover,#commentform #submit,.post-password-required .entry-content input[type="submit"]:hover,blockquote p {
         background-color: <?php echo $minion_color; ?>;
@@ -180,13 +180,13 @@ function dw_minion_typo_color() {
     <?php
   }
 }
-add_filter('wp_head','dw_minion_typo_color');
+add_filter( 'wp_head','dw_minion_typo_color' );
 
 /**
  * Font Selector
  */
 function dw_minion_typo_font(){
-  if (dw_minion_get_theme_option('heading_font') && dw_minion_get_theme_option('heading_font') != '') {
+  if ( dw_minion_get_theme_option('heading_font') && dw_minion_get_theme_option('heading_font') != '' ) {
     $heading_font = explode(':dw:', dw_minion_get_theme_option('heading_font') );
     ?>
       <style type="text/css" id="heading_font" media="screen">

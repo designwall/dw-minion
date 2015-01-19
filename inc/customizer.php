@@ -235,6 +235,16 @@ function dw_minion_customize_register( $wp_customize ) {
     'section'    => 'dw_minion_social_links',
     'settings'   => 'dw_minion_theme_options[linkedin]',
   ));
+  $wp_customize->add_setting('dw_minion_theme_options[github]', array(
+    'default'        => '',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control('github', array(
+    'label'      => __('GitHub', 'dw-minion'),
+    'section'    => 'dw_minion_social_links',
+    'settings'   => 'dw_minion_theme_options[github]',
+  ));
 
   // LEFT SIDEBAR COLOR --------------------------------------------------------------------------------------
   $wp_customize->add_section('dw_minion_leftbar', array(

@@ -66,8 +66,11 @@ require get_template_directory() . '/inc/customizer.php';
 add_action( 'wp_head', 'minion_features_image_as_og_image' );
 function minion_features_image_as_og_image() {
 	global $post;
-	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); 
-	?><meta property="og:image" content="<?php echo $thumb[0] ?>" /><?php
+	if ( $post ) {
+		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+		?><meta property="og:image" content="<?php echo $thumb[0] ?>" /><?php
+	}
+	
 }
 
 // load style for dw qa plugin

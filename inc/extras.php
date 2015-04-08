@@ -208,7 +208,7 @@ function dw_minion_typo_font(){
           font-family: "<?php echo $body_font[0]; ?>";
           src: url('<?php echo $body_font[1] ?>');
         } 
-        body,.entry-content,.page-content,.site-description,.entry-meta .byline, .entry-meta .cat-links, .format-link .entry-content a {
+        body, .entry-content, .page-content, .site-description, .comments-area .comments-title, .comments-area .comment-respond #reply-title, .comments-area .comment-respond #commentform .form-submit #submit, .related-posts .related-posts-title, .entry-meta .byline, .entry-meta .cat-links, .format-link .entry-content a {
           font-family: "<?php echo $body_font[0]; ?>";
         }
       </style>
@@ -244,6 +244,7 @@ function dw_minion_site_actions() {
   $social_links['google_plus'] = dw_minion_get_theme_option( 'google_plus', '' );
   $social_links['youtube'] = dw_minion_get_theme_option( 'youtube', '' );
   $social_links['linkedin'] = dw_minion_get_theme_option( 'linkedin', '' );
+  $social_links['github'] = dw_minion_get_theme_option( 'github', '' );
   ?>
   <div id="actions" class="site-actions clearfix">
       <div class="action show-site-nav">
@@ -266,6 +267,7 @@ function dw_minion_site_actions() {
                   <?php if($social_links['google_plus']!='') { ?><li class="social"><a href="<?php echo $social_links['google_plus']; ?>"><i class="icon-google-plus"></i></a></li><?php } ?>
                   <?php if($social_links['youtube']!='') { ?><li class="social"><a href="<?php echo $social_links['youtube']; ?>"><i class="icon-youtube"></i></a></li><?php } ?>
                   <?php if($social_links['linkedin']!='') { ?><li class="social"><a href="<?php echo $social_links['linkedin']; ?>"><i class="icon-linkedin"></i></a></li><?php } ?>
+                  <?php if($social_links['github']!='') { ?><li class="social"><a href="<?php echo $social_links['github']; ?>"><i class="icon-github"></i></a></li><?php } ?>
               </ul><?php } ?>
           </div>
       </div>

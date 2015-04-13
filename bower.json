@@ -1,0 +1,19 @@
+{
+  "name": "dw-minion",
+  "version": "1.1.8",
+  "homepage": "http://www.designwall.com/wordpress/themes/dw-minion",
+  "authors": [
+    "designwall <thanhlt90@gmail.com>"
+  ],
+  "license": "GPL-3.0+",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "dev/vendor"
+  ],
+  "dependencies": {
+    "bootstrap": "2.3.2",
+    "fontawesome": "4.3.0",
+    "modernizr" : "2.6.2"
+  }
+}

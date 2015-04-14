@@ -84,7 +84,7 @@ module.exports = function(grunt) {
     watch: {
       less: {
         files: [
-          'dev/less/**'
+          'dev/assets/css/**'
         ],
         tasks: ['less:dev', 'less:build']
       },

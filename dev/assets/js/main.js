@@ -63,4 +63,9 @@ jQuery(document).ready(function($){
   if (window.focus) newwindow.focus();
     return false;
   });
+
+    $('#customize-header-actions').live( 'click',function(e){
+
+      console.log('test');
+    });
 });

@@ -115,7 +115,6 @@ function dw_minion_remove_leftbar() {
   }
 }
 add_filter( 'wp_head','dw_minion_remove_leftbar' );
-
 /**
  * Left Sidebar Color
  */

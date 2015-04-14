@@ -57,6 +57,11 @@ function dw_minion_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dw_minion_scripts' );
 
+// function dw_minion_admin_scripts() {
+// 	wp_enqueue_script( 'dw-minion-admin-script', get_template_directory_uri() . '/assets/js/admin.js');
+// }
+// add_action( 'admin_enqueue_scripts', 'dw_minion_admin_scripts' );
+
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/widgets.php';

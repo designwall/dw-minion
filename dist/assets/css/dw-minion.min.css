@@ -5723,6 +5723,7 @@ iframe[id^="oauth2relay"] {
 .pager .nav-next .btn,
 .pager .nav-previous .btn {
   font-size: 14px;
+  width: 9px;
   line-height: 25px;
 }
 .lt-ie9 .pager {

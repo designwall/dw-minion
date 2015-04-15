@@ -166,7 +166,7 @@ function dw_minion_typo_color() {
   }
   if( $minion_color ) { ?>
     <style type="text/css" id="minion_color" media="screen">
-      .btn:hover,#nav-below .btn:hover,.accordion-heading .accordion-toggle,.nav-tabs > li > a:hover, .nav-tabs > li > a:focus,.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus,.pager .pager-title .nav-next a:hover .btn, .pager .pager-title .nav-previous a:hover .btn, .entry-footer .entry-tags .tags-links a:hover,#cancel-comment-reply-link:hover,#commentform #submit,.post-password-required .entry-content input[type="submit"]:hover,blockquote p {
+      .btn:hover,#nav-below .btn:hover,.accordion-heading .accordion-toggle,.nav-tabs > li > a:hover, .nav-tabs > li > a:focus,.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus,.pager .nav-next a:hover .btn, .pager .nav-previous a:hover .btn, .entry-footer .entry-tags .tags-links a:hover,#cancel-comment-reply-link:hover,#commentform #submit,.post-password-required .entry-content input[type="submit"]:hover,blockquote p {
         background-color: <?php echo $minion_color; ?>;
       }
       a:hover,.btn-link:hover,.btn-link:focus,.comment-list .comment-datetime:hover,.comment-list .comment-edit-link:hover,.entry-meta a, .entry-meta .posted-on a:hover, .entry-meta .comments-link a:hover,.format-link .entry-content a,.format-quote .bq-meta a,.widget_nav_menu .current_page_item > a, .widget_nav_menu .current-menu-item > a,[class*="widget_recent_comments"] .url,.dw_twitter .tweet-content a {

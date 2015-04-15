@@ -117,7 +117,7 @@ jQuery(function($) {
             containment: 'document',
             start: function(e,ui) {
                 ui.item.children('.widget-inside').hide();
-                ui.item.css({margin:'', 'width':''});
+                ui.item.css({margin:'', 'width':'', 'height':'auto'});
                 saveWidget = true;
             },
             receive: function(e, ui) {

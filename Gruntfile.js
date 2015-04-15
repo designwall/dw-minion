@@ -162,15 +162,13 @@ module.exports = function(grunt) {
     ]);
   grunt.registerTask('export_release', [
     'copy:assets',
-  	'modernizr',
-    'less',
+  	'less',
     'uglify',
     'concat',
     'compress',
   ]);
   grunt.registerTask('export_demo', [
-  	'modernizr',
-    'less',
+  	'less',
     'uglify',
     'concat',
     'copy:demo',

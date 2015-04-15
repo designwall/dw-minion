@@ -19,6 +19,13 @@ Modernizr 2.6.2 - http://modernizr.com/
 Please post your questions in Questions & Answers page - http://www.designwall.com/question/
 
 == Changelog ==
+= 1.1.8 =
+* Tweak: compatible with wordpress 1.1.1
+* Fix: Change font style , color.
+* Fix: Bug widget page DW Tab & DW Accordion.
+* New: Add Full-Width page template.
+* New: Add github support for social link.
+
 = 1.1.7 =
 * Fix: Change top-bar position.
 * Fix: Change font style for links & blockquote.

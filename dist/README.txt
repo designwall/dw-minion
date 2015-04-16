@@ -20,7 +20,7 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 
 == Changelog ==
 = 1.1.8 =
-* Tweak: compatible with wordpress 1.1.1
+* Tweak: compatible with wordpress 4.1.1
 * Fix: Change font style , color.
 * Fix: Bug widget page DW Tab & DW Accordion.
 * New: Add Full-Width page template.

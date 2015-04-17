@@ -20,11 +20,11 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 
 == Changelog ==
 = 1.1.8 =
+* New: Add Full-Width page template.
+* New: Add github support for social link.
 * Tweak: compatible with wordpress 4.1.1
 * Fix: Change font style , color.
 * Fix: Bug widget page DW Tab & DW Accordion.
-* New: Add Full-Width page template.
-* New: Add github support for social link.
 
 = 1.1.7 =
 * Fix: Change top-bar position.

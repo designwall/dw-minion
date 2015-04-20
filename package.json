@@ -37,6 +37,7 @@
     "grunt-modernizr": "~0.6.0",
     "grunt-wp-assets": "~0.2.6",
     "load-grunt-tasks": "~3.1.0",
-    "time-grunt": "~1.0.0"
+    "time-grunt": "~1.0.0",
+    "grunt-zip": "0.15.0"
   }
 }

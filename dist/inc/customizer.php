@@ -124,7 +124,7 @@ function dw_minion_customize_register( $wp_customize ) {
   ));
   $wp_customize->add_control( 'fullwidth_content', array(
     'settings' => 'dw_minion_theme_options[fullwidth_content]',
-    'label'   => 'Remove the right bar?',
+    'label'   => 'Remove the right sidebar?',
     'section' => 'dw_minion_general',
     'type'    => 'select',
     'choices'    => array(

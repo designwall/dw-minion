@@ -438,9 +438,6 @@
 
   $.fn.carousel.Constructor = Carousel
 
-  $('.carousel').carousel({
-      interval: 5000
-  })
 
  /* CAROUSEL NO CONFLICT
   * ==================== */

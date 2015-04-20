@@ -20,7 +20,7 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 
 == Changelog ==
 = 1.1.8 =
-* New: Add Full-Width page template.
+* New: Add remove right sidebar( customizer ).
 * New: Add github support for social link.
 * Tweak: compatible with wordpress 4.1.1
 * Fix: Change font style , color.

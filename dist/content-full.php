@@ -1,6 +1,9 @@
-<?php $theme_option = get_option( 'dw_minion_theme_options' )['fullwidth_content'];
-	if( 'yes' == $theme_option ) { ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+/**
+ * Template Name: Full-Width( No Sidebar )
+ */
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<table>
@@ -31,28 +34,16 @@
 	?>
 
 	<div class="entry-content <?php echo esc_attr( $class ) ?>"> 
-		<?php the_content(); ?>
+		<?php the_content( __( '<span class="btn btn-small">Continue reading</span>', 'dw-minion' ) ); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'dw-minion' ),
-				'after'  => '</div>',
-			) );
+			// wp_link_pages( array(
+			// 	'before' => '<div class="page-links">',
+			// 	'after'  => '</div>',
+			// 	'link_before' => '<span class="btn btn-small">',
+			// 	'link_after'  => '</span>',
+			// ) );
 		?>
 	</div>
 </article>
-	<?php } else { ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<header class="page-header">
-			<h1 class="page-title"><?php the_title(); ?></h1>
-		</header>
-		<div class="page-content">
-			<?php the_content(); ?>
-			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'dw-minion' ),
-					'after'  => '</div>',
-				) );
-			?>
-		</div>
-	</article>
-<?php }
+<?php
+

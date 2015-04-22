@@ -90,6 +90,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'no',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_disable_related_article',
   ));
   $wp_customize->add_control( 'disable_related_article', array(
     'settings' => 'dw_minion_theme_options[disable_related_article]',
@@ -105,6 +106,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'no',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_remove_left_bar',
   ));
   $wp_customize->add_control( 'remove_leftbar', array(
     'settings' => 'dw_minion_theme_options[remove_leftbar]',
@@ -121,6 +123,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'no',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_fullwidth_content'
   ));
   $wp_customize->add_control( 'fullwidth_content', array(
     'settings' => 'dw_minion_theme_options[fullwidth_content]',
@@ -141,7 +144,8 @@ function dw_minion_customize_register( $wp_customize ) {
 
   $wp_customize->add_setting('dw_minion_theme_options[layout]', array(
     'capability' => 'edit_theme_options',
-    'type' => 'option'
+    'type' => 'option',
+    'sanitize_callback' => 'dw_minion_layout',
   ));
 
   $wp_customize->add_control( new Layout_Picker_Custom_control($wp_customize, 'layout', array(
@@ -156,6 +160,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_about',
   ));
   $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'about', array(
     'label'      => __('About', 'dw-minion'),
@@ -165,6 +170,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[logo]', array(
     'capability' => 'edit_theme_options',
     'type' => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_logo',
   ));
   $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'logo', array(
     'label' => __('Site Logo', 'dw-minion'),
@@ -175,6 +181,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'site_title',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_header_display',
   ));
   $wp_customize->add_control( 'header_display', array(
     'settings' => 'dw_minion_theme_options[header_display]',
@@ -189,6 +196,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[favicon]', array(
     'capability' => 'edit_theme_options',
     'type' => 'option',
+    'sanitize_callback' => 'dw_minion_favicon',
   ));
   $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'favicon', array(
     'label' => __('Site Favicon', 'dw-minion'),
@@ -205,6 +213,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_facebook',
   ));
   $wp_customize->add_control('facebook', array(
     'label'      => __('Facebook', 'dw-minion'),
@@ -215,6 +224,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_twitter',
   ));
   $wp_customize->add_control('twitter', array(
     'label'      => __('Twitter', 'dw-minion'),
@@ -225,6 +235,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_google_plus',
   ));
   $wp_customize->add_control('google_plus', array(
     'label'      => __('Google+', 'dw-minion'),
@@ -235,6 +246,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_youtube',
   ));
   $wp_customize->add_control('youtube', array(
     'label'      => __('YouTube', 'dw-minion'),
@@ -245,6 +257,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_linkedin',
   ));
   $wp_customize->add_control('linkedin', array(
     'label'      => __('LinkedIn', 'dw-minion'),
@@ -255,6 +268,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_github',
   ));
   $wp_customize->add_control('github', array(
     'label'      => __('Github', 'dw-minion'),
@@ -270,7 +284,9 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bgcolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '#222222'
+    'default'        => '#222222',
+    'sanitize_callback' => 'dw_minion_leftbar_bgcolor',
+
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bgcolor', array(
     'label'        => __( 'Background Color', 'dw-minion' ),
@@ -280,7 +296,8 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bghovercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '#111111'
+    'default'        => '#111111',
+    'sanitize_callback' => 'dw_minion_leftbar_bghovercolor',
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bghovercolor', array(
     'label'        => __( 'Background Hover Color', 'dw-minion' ),
@@ -290,7 +307,8 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_color]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '#444444'
+    'default'        => '#444444',
+    'sanitize_callback' => 'dw_minion_sanitize_leftbar_color',
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_color', array(
     'label'        => __( 'Text Color', 'dw-minion' ),
@@ -300,7 +318,8 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_hovercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '#ffffff'
+    'default'        => '#ffffff',
+    'sanitize_callback' => 'dw_minion_leftbar_hovercolor',
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_hovercolor', array(
     'label'        => __( 'Text Hover Color', 'dw-minion' ),
@@ -310,7 +329,8 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[leftbar_bordercolor]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '#333333'
+    'default'        => '#333333',
+    'sanitize_callback' => 'dw_minion_leftbar_bordercolor',
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'leftbar_bordercolor', array(
     'label'        => __( 'Border Color', 'dw-minion' ),
@@ -326,6 +346,7 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[select-color]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_select_color',
   ));
   $wp_customize->add_control( new Color_Picker_Custom_control($wp_customize, 'select-color', array(
     'label' => __('Color Schemes', 'dw-minion'),
@@ -337,6 +358,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => '',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_custom_color',
   ));
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
     'label'        => __( 'Custom Color', 'dw-minion' ),
@@ -361,6 +383,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'Roboto Slab:dw:http://themes.googleusercontent.com/static/fonts/robotoslab/v2/3__ulTNA7unv0UtplybPiqCWcynf_cDxXwCLxiixG1c.ttf',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_heading_font',
   ));
   $wp_customize->add_control( 'heading_font', array(
     'settings' => 'dw_minion_theme_options[heading_font]',
@@ -373,6 +396,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default'        => 'Roboto:dw:http://themes.googleusercontent.com/static/fonts/roboto/v9/W5F8_SL0XFawnjxHGsZjJA.ttf',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_body_font',
   ));
   $wp_customize->add_control( 'body_font', array(
     'settings' => 'dw_minion_theme_options[body_font]',
@@ -384,7 +408,8 @@ function dw_minion_customize_register( $wp_customize ) {
   $wp_customize->add_setting('dw_minion_theme_options[article_font_size]', array(
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
-    'default'        => '15'
+    'default'        => '15',
+    'sanitize_callback' => 'dw_minion_sanitize_article_font_size',
   ));
   $wp_customize->add_control('article_font_size', array(
     'label'      => __('Article font size (px)', 'dw-minion'),
@@ -401,6 +426,7 @@ function dw_minion_customize_register( $wp_customize ) {
       'default' => '',
       'capability' => 'edit_theme_options',
       'type' => 'option',
+      'sanitize_callback' => 'dw_minion_sanitize_header_code',
   ));
   $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'header_code', array(
     'label'    => __('Header Code (Meta tags, CSS, etc ...)', 'dw-minion'),
@@ -411,6 +437,7 @@ function dw_minion_customize_register( $wp_customize ) {
     'default' => '',
     'capability' => 'edit_theme_options',
     'type' => 'option',
+    'sanitize_callback' => 'dw_minion_sanitize_footer_code',
   ));
   $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'footer_code', array(
     'label'    => __('Footer Code (Analytics, etc ...)', 'dw-minion'),
@@ -419,3 +446,79 @@ function dw_minion_customize_register( $wp_customize ) {
   )));
 }
 add_action( 'customize_register', 'dw_minion_customize_register' );
+
+function dw_minion_disable_related_article( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_remove_left_bar( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_fullwidth_content( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_layout( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_about( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_logo( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_header_display( $str ) {
+  return esc_attr( $str );
+}
+function dw_minion_facebook( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_twitter( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_google_plus( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_youtube( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_linkedin( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_github( $str ) {
+  return esc_url( $str );
+}
+function dw_minion_leftbar_bgcolor( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_leftbar_bghovercolor( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_leftbar_color( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_leftbar_hovercolor( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_leftbar_bordercolor( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_select_color( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_custom_color( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_heading_font( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_body_font( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_article_font_size( $str ) {
+  return sanitize_text_field( $str );
+}
+function dw_minion_sanitize_header_code( $str ) {
+  return wp_kses_post( $str );
+}
+function dw_minion_sanitize_footer_code( $str ) {
+  return wp_kses_post( $str );
+}

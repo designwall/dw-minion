@@ -93,7 +93,7 @@ function dw_minion_top_sidebar() {
 }
 
 // TGM plugin activation
-require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+// require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 function alx_plugins() {
 	$plugins = array(
 		array(
@@ -115,3 +115,8 @@ function alx_plugins() {
 	tgmpa( $plugins );
 }
 add_action( 'tgmpa_register', 'alx_plugins' );
+add_theme_support( "title-tag" );
+$custom_header_args = array();
+$custom_background_args = array();
+add_theme_support( "custom-header", $custom_header_args );
+add_theme_support( "custom-background", $custom_background_args );

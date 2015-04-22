@@ -1,6 +1,6 @@
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <?php $theme_option = get_option( 'dw_minion_theme_options' )['fullwidth_content'];
-	if( 'yes' == $theme_option ) { ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	if( 'yes' == $theme_option ) : ?>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<table>
@@ -29,7 +29,6 @@
 	}
 
 	?>
-
 	<div class="entry-content <?php echo esc_attr( $class ) ?>"> 
 		<?php the_content(); ?>
 		<?php
@@ -39,9 +38,7 @@
 			) );
 		?>
 	</div>
-</article>
-	<?php } else { ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php else : ?>
 		<header class="page-header">
 			<h1 class="page-title"><?php the_title(); ?></h1>
 		</header>
@@ -54,5 +51,5 @@
 				) );
 			?>
 		</div>
-	</article>
-<?php }
+<?php endif; ?>
+</article>

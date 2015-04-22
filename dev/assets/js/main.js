@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+( function($) {
   var vph = $(window).height();
   $('.site-main').css('min-height', vph + 'px'); 
   $(window).resize(function(){
@@ -63,9 +63,6 @@ jQuery(document).ready(function($){
   if (window.focus) newwindow.focus();
     return false;
   });
-
     $('#customize-header-actions').live( 'click',function(e){
-
-      console.log('test');
     });
-});
+}(jQuery));

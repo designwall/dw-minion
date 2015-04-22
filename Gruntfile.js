@@ -16,8 +16,8 @@ module.exports = function(grunt) {
     'dev/vendor/bootstrap/js/bootstrap-scrollspy.js',
     'dev/vendor/bootstrap/js/bootstrap-tab.js',
     'dev/vendor/bootstrap/js/bootstrap-affix.js',
-    'dev/assets/js/iscroll.js',
-    'dev/assets/js/main.js',
+    // 'dev/assets/js/iscroll.js',
+    // 'dev/assets/js/main.js',
     ];
 
   grunt.initConfig({
@@ -75,6 +75,11 @@ module.exports = function(grunt) {
           'dist/assets/js/dw-minion.min.js': [jsFileList]
         }
       },
+       main: {
+        files: {
+          'dist/assets/js/main.min.js': ['dev/assets/js/main.js', 'dev/assets/js/iscroll.js',]
+        }
+      },
       modernizr: {
          files: {
           'dist/assets/js/modernizr.js': ['dev/vendor/modernizr/modernizr.js',]
@@ -91,7 +96,9 @@ module.exports = function(grunt) {
       js: {
         files: [
           jsFileList,
-          '<%= jshint.all %>'
+          '<%= jshint.all %>',
+          'dev/assets/js/main.js',
+          'dev/assets/js/iscroll.js'
         ],
         tasks: ['concat', 'uglify']
       },

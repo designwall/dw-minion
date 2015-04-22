@@ -418,32 +418,32 @@ function dw_minion_customize_register( $wp_customize ) {
   ));
 
   // CUSTOM CODE --------------------------------------------------------------------------------------
-  $wp_customize->add_section('dw_minion_custom_code', array(
-    'title'    => __('Custom Code', 'dw-minion'),
-    'priority' => 200,
-  ));
-  $wp_customize->add_setting('dw_minion_theme_options[header_code]', array(
-      'default' => '',
-      'capability' => 'edit_theme_options',
-      'type' => 'option',
-      'sanitize_callback' => 'dw_minion_sanitize_header_code',
-  ));
-  $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'header_code', array(
-    'label'    => __('Header Code (Meta tags, CSS, etc ...)', 'dw-minion'),
-    'section'  => 'dw_minion_custom_code',
-    'settings' => 'dw_minion_theme_options[header_code]',
-  )));
-  $wp_customize->add_setting('dw_minion_theme_options[footer_code]', array(
-    'default' => '',
-    'capability' => 'edit_theme_options',
-    'type' => 'option',
-    'sanitize_callback' => 'dw_minion_sanitize_footer_code',
-  ));
-  $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'footer_code', array(
-    'label'    => __('Footer Code (Analytics, etc ...)', 'dw-minion'),
-    'section'  => 'dw_minion_custom_code',
-    'settings' => 'dw_minion_theme_options[footer_code]'
-  )));
+//   $wp_customize->add_section('dw_minion_custom_code', array(
+//     'title'    => __('Custom Code', 'dw-minion'),
+//     'priority' => 200,
+//   ));
+//   $wp_customize->add_setting('dw_minion_theme_options[header_code]', array(
+//       'default' => '',
+//       'capability' => 'edit_theme_options',
+//       'type' => 'option',
+//       'sanitize_callback' => 'dw_minion_sanitize_header_code',
+//   ));
+//   $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'header_code', array(
+//     'label'    => __('Header Code (Meta tags, CSS, etc ...)', 'dw-minion'),
+//     'section'  => 'dw_minion_custom_code',
+//     'settings' => 'dw_minion_theme_options[header_code]',
+//   )));
+//   $wp_customize->add_setting('dw_minion_theme_options[footer_code]', array(
+//     'default' => '',
+//     'capability' => 'edit_theme_options',
+//     'type' => 'option',
+//     'sanitize_callback' => 'dw_minion_sanitize_footer_code',
+//   ));
+//   $wp_customize->add_control( new DW_Minion_Textarea_Custom_Control($wp_customize, 'footer_code', array(
+//     'label'    => __('Footer Code (Analytics, etc ...)', 'dw-minion'),
+//     'section'  => 'dw_minion_custom_code',
+//     'settings' => 'dw_minion_theme_options[footer_code]'
+//   )));
 }
 add_action( 'customize_register', 'dw_minion_customize_register' );
 
@@ -516,9 +516,9 @@ function dw_minion_sanitize_body_font( $str ) {
 function dw_minion_sanitize_article_font_size( $str ) {
   return sanitize_text_field( $str );
 }
-function dw_minion_sanitize_header_code( $str ) {
-  return wp_kses_post( $str );
-}
-function dw_minion_sanitize_footer_code( $str ) {
-  return wp_kses_post( $str );
-}
+// function dw_minion_sanitize_header_code( $str ) {
+//   return wp_kses_post( $str );
+// }
+// function dw_minion_sanitize_footer_code( $str ) {
+//   return wp_kses_post( $str );
+// }

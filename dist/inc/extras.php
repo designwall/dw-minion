@@ -86,18 +86,18 @@ function dw_minion_logo() {
 /**
  * Header Code
  */
-function dw_minion_custom_header_code() {
-  echo dw_minion_get_theme_option( 'header_code' );
-}
-add_action( 'wp_head', 'dw_minion_custom_header_code' );
+// function dw_minion_custom_header_code() {
+//   echo dw_minion_get_theme_option( 'header_code' );
+// }
+// add_action( 'wp_head', 'dw_minion_custom_header_code' );
 
 /**
  * Footer Code
  */
-function dw_minion_custom_footer_code() {
-  echo dw_minion_get_theme_option( 'footer_code' );
-}
-add_action( 'wp_footer', 'dw_minion_custom_footer_code' );
+// function dw_minion_custom_footer_code() {
+//   echo dw_minion_get_theme_option( 'footer_code' );
+// }
+// add_action( 'wp_footer', 'dw_minion_custom_footer_code' );
 
 /**
  * Color Selector
@@ -366,8 +366,8 @@ function dw_minion_post_gallery( $output, $attr) {
 /**
  * Remove #more Anchor from Permalinks
  */
-add_filter('the_content_more_link', 'remove_more_jump_link');
-function remove_more_jump_link($link) { 
+add_filter('the_content_more_link', 'dw_minion_remove_more_jump_link');
+function dw_minion_remove_more_jump_link($link) { 
   $offset = strpos($link, '#more-');
   if ($offset) { $end = strpos($link, '"',$offset); }
   if ($end) { $link = substr_replace($link, '', $offset, $end-$offset); }

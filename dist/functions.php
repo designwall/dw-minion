@@ -9,6 +9,16 @@ if ( ! function_exists( 'dw_minion_setup' ) ) {
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'quote', 'link' ) );
 		add_theme_support( 'post-thumbnails' );
 		add_editor_style();
+		add_action( 'tgmpa_register', 'alx_plugins' );
+		add_theme_support( "title-tag" );
+		$custom_header_args = array();
+		$custom_background_args = array();
+		add_theme_support( "custom-header", $custom_header_args );
+		add_theme_support( "custom-background", $custom_background_args );
+
+		add_action( 'wp_head', 'minion_features_image_as_og_image' );
+		add_action( 'widgets_init', 'dw_minion_widgets_init' );
+		add_action( 'wp_enqueue_scripts', 'dw_minion_scripts' );
 	}
 }
 add_action( 'after_setup_theme', 'dw_minion_setup' );
@@ -39,7 +49,7 @@ function dw_minion_widgets_init() {
         'after_title' => '</h3>',
     ) );
 }
-add_action( 'widgets_init', 'dw_minion_widgets_init' );
+
 
 function dw_minion_scripts() {
 	wp_enqueue_style( 'dw-minion-main', get_template_directory_uri() . '/assets/css/dw-minion.min.css' ); // green
@@ -56,7 +66,7 @@ function dw_minion_scripts() {
 	// wp_enqueue_script( 'bootstrap-collapse', get_template_directory_uri() . '/assets/js/bootstrap-collapse.js', array('jquery'), false, true );
 	// wp_enqueue_script( 'bootstrap-tab', get_template_directory_uri() . '/assets/js/bootstrap-tab.js', array('jquery'), false, true );
 }
-add_action( 'wp_enqueue_scripts', 'dw_minion_scripts' );
+
 
 // function dw_minion_admin_scripts() {
 // 	wp_enqueue_script( 'dw-minion-admin-script', get_template_directory_uri() . '/assets/js/admin.js');
@@ -69,7 +79,7 @@ require get_template_directory() . '/inc/widgets.php';
 require get_template_directory() . '/inc/customizer.php';
 
 // features image on social share
-add_action( 'wp_head', 'minion_features_image_as_og_image' );
+
 function minion_features_image_as_og_image() {
 	global $post;
 	if ( $post ) {
@@ -115,9 +125,3 @@ function alx_plugins() {
 	);	
 	tgmpa( $plugins );
 }
-add_action( 'tgmpa_register', 'alx_plugins' );
-add_theme_support( "title-tag" );
-$custom_header_args = array();
-$custom_background_args = array();
-add_theme_support( "custom-header", $custom_header_args );
-add_theme_support( "custom-background", $custom_background_args );

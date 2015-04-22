@@ -11,11 +11,11 @@ add_action( 'admin_enqueue_scripts', 'dw_minion_dynamic_widget_js' );
 /**
  * Dynamic Widget
  */
-class dw_dynamic_Widget extends WP_Widget {
+class dw_minion_dynamic_Widget extends WP_Widget {
   function widget( $args, $instance ) {
     extract( $args, EXTR_SKIP );
     echo $before_widget;
-    $this->dw_display_widgets_front($instance);
+    $this->dw_minion_display_widgets_front($instance);
     echo $after_widget;
   }
   function update( $new_instance, $old_instance ) {
@@ -41,7 +41,7 @@ class dw_dynamic_Widget extends WP_Widget {
               if( !empty( $widget ) ) {
                 $url = rawurldecode($widget);
                 parse_str($widget,$s);
-                $this->dw_display_widgets($s, $number);
+                $this->dw_minion_display_widgets($s, $number);
               }
               $number++;
             }
@@ -50,7 +50,7 @@ class dw_dynamic_Widget extends WP_Widget {
       </div>
     <?php
   }
-  function dw_get_widgets( $id_base, $number ){
+  function dw_minion_get_widgets( $id_base, $number ){
     global $wp_registered_widgets;
     $widget = false;
     foreach ($wp_registered_widgets as $key => $wdg) {
@@ -66,9 +66,9 @@ class dw_dynamic_Widget extends WP_Widget {
     }
     return $widget;
   }
-  function dw_display_widgets($s, $number){
+  function dw_minion_display_widgets($s, $number){
     $instance = !empty($s['widget-'.$s['id_base']]) ? array_shift( $s['widget-'.$s['id_base']] ) : array();
-    $widget = $this->dw_get_widgets( $s['id_base'], $number );
+    $widget = $this->dw_minion_get_widgets( $s['id_base'], $number );
   ?>  
     <?php if( $widget ) { ?>
     <div id="<?php echo esc_attr($s['widget-id']); ?>" class="widget">
@@ -116,12 +116,12 @@ class dw_dynamic_Widget extends WP_Widget {
 /**
  * Tabs Widget
  */
-class dw_tabs_Widget extends dw_dynamic_Widget {
-  function dw_tabs_Widget() {
+class dw_minion_tabs_Widget extends dw_minion_dynamic_Widget {
+  function dw_minion_tabs_Widget() {
     $widget_ops = array( 'classname' => 'dw_tabs news-tab', 'description' => __('Display widgets inside a tab','dw_minion') );
     $this->WP_Widget( 'dw_tabs', 'DW: Tabs', $widget_ops );
   }
-  function dw_display_widgets_front($instance){
+  function dw_minion_display_widgets_front($instance){
     global $wp_registered_widget_updates;
     wp_parse_args($instance, array(
       'widgets' => array()
@@ -140,7 +140,7 @@ class dw_tabs_Widget extends dw_dynamic_Widget {
                 $url = rawurldecode($widget);
                 parse_str($url,$s);
                 $instance = !empty($s['widget-'.$s['id_base']]) ? array_shift( $s['widget-'.$s['id_base']] ) : array();
-                $widget = $this->dw_get_widgets( $s['id_base'], $i );
+                $widget = $this->dw_minion_get_widgets( $s['id_base'], $i );
                 if( $widget ) {
                   $widget_title = isset($instance['title']) ? $instance['title'] : $widget->name;
                   echo '<option data-target="#'.$s['widget-id'].'" '.$selected.' value="#'.$s['widget-id'].'" >'.strtoupper( $widget_title ).'</option>';
@@ -161,7 +161,7 @@ class dw_tabs_Widget extends dw_dynamic_Widget {
           $url = rawurldecode($widget);
           parse_str($widget,$s);
           $instance = !empty($s['widget-'.$s['id_base']]) ? array_shift( $s['widget-'.$s['id_base']] ) : array();
-          $widget = $this->dw_get_widgets( $s['id_base'], $i );
+          $widget = $this->dw_minion_get_widgets( $s['id_base'], $i );
           if( $widget ) {
             $widget_title = isset($instance['title']) ? $instance['title'] : $widget->name;
             echo '<li class="'.$active.'"><a href="#'.$s['widget-id'].'" data-toggle="tab">'.$widget_title.'</a></li>';
@@ -181,7 +181,7 @@ class dw_tabs_Widget extends dw_dynamic_Widget {
                 $url = rawurldecode($widget);
                 parse_str($widget,$s);
                 $instance = isset($s['widget-'.$s['id_base']]) ? array_shift( $s['widget-'.$s['id_base']] ) : array();
-                $widget = $this->dw_get_widgets( $s['id_base'], $i );
+                $widget = $this->dw_minion_get_widgets( $s['id_base'], $i );
                 if( isset($s['id_base'] ) && $widget ) {
                   $widget_options = $widget->widget_options; 
                 ?>
@@ -206,17 +206,17 @@ class dw_tabs_Widget extends dw_dynamic_Widget {
   <?php
   }
 }
-add_action( 'widgets_init', create_function( '', "register_widget('dw_tabs_Widget');" ) );
+add_action( 'widgets_init', create_function( '', "register_widget('dw_minion_tabs_Widget');" ) );
 
 /**
  * Accordion Widget
  */
-class dw_accordion_Widget extends dw_dynamic_Widget {
-  function dw_accordion_Widget() {
+class dw_minion_accordion_Widget extends dw_minion_dynamic_Widget {
+  function dw_minion_accordion_Widget() {
     $widget_ops = array( 'classname' => 'dw_accordion news-accordion', 'description' => __('Display widgets inside an accordion','dw_minion') );
     $this->WP_Widget( 'dw_accordions', 'DW: Accordion', $widget_ops );
   }
-  function dw_display_widgets_front($instance){
+  function dw_minion_display_widgets_front($instance){
     global $wp_registered_widget_updates;
     wp_parse_args($instance, array(
       'widgets' => array()
@@ -231,7 +231,7 @@ class dw_accordion_Widget extends dw_dynamic_Widget {
           $url = rawurldecode($widget);
           parse_str($url,$s);
           $instance = !empty($s['widget-'.$s['id_base']]) ? array_shift( $s['widget-'.$s['id_base']] ) : array();
-          $widget = $this->dw_get_widgets( $s['id_base'], $i );
+          $widget = $this->dw_minion_get_widgets( $s['id_base'], $i );
           if( isset($s['id_base'] ) && $widget ){ ?>
             <?php $widget_options = $widget->widget_options; ?>
             <div class="accordion-group">
@@ -259,4 +259,4 @@ class dw_accordion_Widget extends dw_dynamic_Widget {
     }
   }
 }
-add_action( 'widgets_init', create_function( '', "register_widget('dw_accordion_Widget');" ) );
+add_action( 'widgets_init', create_function( '', "register_widget('dw_minion_accordion_Widget');" ) );

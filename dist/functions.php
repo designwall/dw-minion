@@ -10,7 +10,7 @@ if ( ! function_exists( 'dw_minion_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		add_editor_style();
 		add_action( 'tgmpa_register', 'alx_plugins' );
-		add_theme_support( "title-tag" );
+		// add_theme_support( "title-tag" );
 		$custom_header_args = array();
 		$custom_background_args = array();
 		add_theme_support( "custom-header", $custom_header_args );

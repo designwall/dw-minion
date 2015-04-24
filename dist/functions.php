@@ -104,7 +104,6 @@ function dw_minion_top_sidebar() {
 }
 
 // TGM plugin activation
-// require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 function alx_plugins() {
 	$plugins = array(
 		array(

@@ -22,7 +22,8 @@ Please post your questions in Questions & Answers page - http://www.designwall.c
 = 1.1.8 =
 * New: Add remove right sidebar( customizer ).
 * New: Add github support for social link.
-* Tweak: compatible with wordpress 4.1.1
+* Tweak: compatible with wordpress 4.2
+* Fix: XSS Vulnerability
 * Fix: Change font style , color.
 * Fix: Bug widget page DW Tab & DW Accordion.
 

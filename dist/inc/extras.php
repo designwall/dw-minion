@@ -7,7 +7,7 @@ function dw_minion_get_theme_option( $option_name, $default = '' ) {
   if ( isset( $options[$option_name] ) ) {
     return $options[$option_name];
   }
-  return $default; 
+  return $default;
 }
 
 /**
@@ -69,7 +69,7 @@ function dw_minion_logo() {
   $header_display = ( dw_minion_get_theme_option( 'header_display', 'site_title' ) == 'site_title' ) ? 'display-title' : 'display-logo';
   $logo = dw_minion_get_theme_option( 'logo' );
   $tagline = get_bloginfo( 'description' );
-  $about = dw_minion_get_theme_option( 'about', get_bloginfo( 'description' ) );
+  $about = dw_minion_get_theme_option( 'about' );
   echo '<h1 class="site-title '.$header_display.'"><a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" rel="home">';
   if ( $header_display == 'display-logo' ) {
     echo '<img alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.$logo.'" />';
@@ -192,7 +192,7 @@ function dw_minion_typo_font(){
         @font-face {
           font-family: "<?php echo $heading_font[0]; ?>";
           src: url('<?php echo $heading_font[1] ?>');
-        } 
+        }
         h1,h2,h3,h4,h5,h6,blockquote p {
           font-family: "<?php echo $heading_font[0]; ?>";
         }
@@ -206,7 +206,7 @@ function dw_minion_typo_font(){
         @font-face {
           font-family: "<?php echo $body_font[0]; ?>";
           src: url('<?php echo $body_font[1] ?>');
-        } 
+        }
         body, .entry-content, .page-content, .site-description, .comments-area .comments-title, .comments-area .comment-respond #reply-title, .comments-area .comment-respond #commentform .form-submit #submit, .related-posts .related-posts-title, .entry-meta .byline, .entry-meta .cat-links, .format-link .entry-content a {
           font-family: "<?php echo $body_font[0]; ?>";
         }
@@ -271,7 +271,7 @@ function dw_minion_site_actions() {
           </div>
       </div>
   </div>
-  <?php 
+  <?php
 }
 
 /**
@@ -367,7 +367,7 @@ function dw_minion_post_gallery( $output, $attr) {
  * Remove #more Anchor from Permalinks
  */
 add_filter('the_content_more_link', 'dw_minion_remove_more_jump_link');
-function dw_minion_remove_more_jump_link($link) { 
+function dw_minion_remove_more_jump_link($link) {
   $offset = strpos($link, '#more-');
   if ($offset) { $end = strpos($link, '"',$offset); }
   if ($end) { $link = substr_replace($link, '', $offset, $end-$offset); }
